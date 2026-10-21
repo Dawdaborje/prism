@@ -1,0 +1,19 @@
+<page route="/prism/dashboards" title="Dashboards" model="prism_dashboard" icon="layout-dashboard" sort="1" roles="prism.prism_viewer,prism.prism_analyst,prism.prism_admin">
+  <view type="list" model="prism_dashboard" source="search_dashboards" open="/prism/dashboards/{id}"
+        create="/prism/dashboards/new" create_label="New dashboard" page_size="25">
+    <search fields="name,description"/>
+    <filter field="shared" label="Sharing" options="Shared=true,Private=false"/>
+    <columns>
+      <column field="starred" label="★" fieldType="boolean"/>
+      <column field="name" label="Dashboard" sortable="true"/>
+      <column field="description" label="Description"/>
+      <column field="shared" label="Shared" fieldType="boolean"/>
+    </columns>
+    <actions>
+      <action name="star" label="Star" function="star_dashboard"/>
+      <action name="unstar" label="Unstar" function="unstar_dashboard"/>
+      <action name="copy" label="Make my copy" function="duplicate_dashboard"/>
+    </actions>
+    <empty title="No dashboards yet" description="Use New dashboard, or install Prism packs for ready-made ones."/>
+  </view>
+</page>

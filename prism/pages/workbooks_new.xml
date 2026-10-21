@@ -1,0 +1,9 @@
+<page route="/prism/workbooks/new" title="New workbook" model="prism_workbook" menu="false" roles="prism_analyst,prism_admin">
+  <view type="form" function="create_workbook" submit="Create workbook" success="Workbook created" redirect="/prism">
+    <group title="Workbook" cols="2">
+      <field name="name" label="Name" required="true"/>
+      <field name="shared" label="Shared with everyone"/>
+      <field name="description" label="Description" fieldType="text" colspan="2"/>
+    </group>
+  </view>
+</page>

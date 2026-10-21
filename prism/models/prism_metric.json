@@ -1,0 +1,107 @@
+{
+  "model_id": "mdl_xc464been4",
+  "name": "prism_metric",
+  "label": "Metric",
+  "plural_label": "Metrics",
+  "icon": "sigma",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_oyzvpkcuui",
+      "name": "code",
+      "label": "Code",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "help": "Used in charts as metric(code)"
+    },
+    {
+      "id": "fld_yu43orcqvz",
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_bwmxhqsu3w",
+      "name": "source",
+      "label": "Source",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "help": "Model, such as crm_deal.deal"
+    },
+    {
+      "id": "fld_ouu3lra477",
+      "name": "measure",
+      "label": "Measure",
+      "type": "text",
+      "required": true,
+      "help": "One measure, such as sum(expected_value) or count_if({\"closed_at\":{\"null\":false}})"
+    },
+    {
+      "id": "fld_e725hlommr",
+      "name": "format",
+      "label": "Format",
+      "type": "select",
+      "default": "number",
+      "options": [
+        {
+          "id": "opt_vige54zhuf",
+          "value": "number",
+          "label": "Number"
+        },
+        {
+          "id": "opt_i2qftvt4ih",
+          "value": "compact",
+          "label": "Compact (1.2k)"
+        },
+        {
+          "id": "opt_zdc53kimtn",
+          "value": "currency",
+          "label": "Currency"
+        },
+        {
+          "id": "opt_idt3rzv2gm",
+          "value": "percent",
+          "label": "Percent"
+        },
+        {
+          "id": "opt_xxpo57bwzf",
+          "value": "days",
+          "label": "Days"
+        }
+      ]
+    },
+    {
+      "id": "fld_umykp5o5u4",
+      "name": "currency",
+      "label": "Currency",
+      "type": "string",
+      "max_length": 8
+    },
+    {
+      "id": "fld_y3af4kbhx7",
+      "name": "description",
+      "label": "Description",
+      "type": "text"
+    },
+    {
+      "id": "fld_ks7gqxgovd",
+      "name": "owner",
+      "label": "Owner",
+      "type": "string",
+      "max_length": 128
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "source",
+      "format"
+    ]
+  }
+}

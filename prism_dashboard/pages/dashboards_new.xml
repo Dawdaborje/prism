@@ -1,0 +1,10 @@
+<page route="/prism/dashboards/new" title="New dashboard" model="prism_dashboard" menu="false" roles="prism.prism_analyst,prism.prism_admin">
+  <view type="form" function="create_dashboard" submit="Create dashboard" success="Dashboard created" redirect="/prism/dashboards">
+    <group title="Dashboard" cols="2">
+      <field name="name" label="Name" required="true"/>
+      <field name="shared" label="Shared with everyone"/>
+      <field name="refresh_secs" label="Refresh every (seconds)" fieldType="integer"/>
+      <field name="description" label="Description" fieldType="text" colspan="2"/>
+    </group>
+  </view>
+</page>

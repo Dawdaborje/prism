@@ -1,0 +1,116 @@
+{
+  "model_id": "mdl_wyvvvlm7xe",
+  "name": "prism_dashboard_filter",
+  "label": "Dashboard filter",
+  "plural_label": "Dashboard filters",
+  "icon": "filter",
+  "title_field": "label",
+  "fields": [
+    {
+      "id": "fld_njjp6jwlrn",
+      "name": "dashboard",
+      "label": "Dashboard",
+      "type": "link",
+      "required": true,
+      "index": "plain",
+      "target": "prism_dashboard"
+    },
+    {
+      "id": "fld_fppwhtesoh",
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "help": "Letters, digits and _"
+    },
+    {
+      "id": "fld_zs4ldreqix",
+      "name": "label",
+      "label": "Label",
+      "type": "string",
+      "required": true,
+      "max_length": 120
+    },
+    {
+      "id": "fld_pbarjiuwrk",
+      "name": "kind",
+      "label": "Kind",
+      "type": "select",
+      "default": "period",
+      "options": [
+        {
+          "id": "opt_2jdktrqphs",
+          "value": "period",
+          "label": "Date period"
+        },
+        {
+          "id": "opt_taf3gt6xrr",
+          "value": "select",
+          "label": "Pick from values"
+        },
+        {
+          "id": "opt_cancu6flro",
+          "value": "text",
+          "label": "Contains text"
+        }
+      ]
+    },
+    {
+      "id": "fld_d7qlu2fxjd",
+      "name": "field",
+      "label": "Field",
+      "type": "string",
+      "required": true,
+      "default": "$date",
+      "max_length": 64,
+      "help": "The field to filter. $date: each chart's own date field. A chart without the field is left alone"
+    },
+    {
+      "id": "fld_t4b2va5t6a",
+      "name": "source",
+      "label": "Source",
+      "type": "string",
+      "max_length": 128,
+      "help": "For a value picker: the model the values come from, such as crm_deal.deal"
+    },
+    {
+      "id": "fld_wa5coo73lc",
+      "name": "default_value",
+      "label": "Default value",
+      "type": "string",
+      "max_length": 200,
+      "help": "A period such as this_month, or text"
+    },
+    {
+      "id": "fld_c55ki4f5ww",
+      "name": "position",
+      "label": "Position",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_xmazgbi7lz",
+      "name": "shared",
+      "label": "Shared",
+      "type": "bool",
+      "related": "dashboard.shared"
+    },
+    {
+      "id": "fld_v3bjqqc4dp",
+      "name": "owner",
+      "label": "Owner",
+      "type": "string",
+      "max_length": 128,
+      "related": "dashboard.owner"
+    }
+  ],
+  "view": {
+    "list": [
+      "dashboard",
+      "label",
+      "kind",
+      "field"
+    ]
+  }
+}

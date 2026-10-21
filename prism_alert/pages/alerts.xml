@@ -1,0 +1,16 @@
+<page route="/prism/alerts" title="Alerts" model="prism_alert" icon="bell" sort="30" roles="prism_viewer,prism_analyst,prism_admin">
+  <view type="list" model="prism_alert" source="search_alerts" open="/prism/alerts/{id}"
+        create="/prism/alerts/new" create_label="New alert" page_size="25">
+    <search fields="name"/>
+    <columns>
+      <column field="name" label="Alert" sortable="true"/>
+      <column field="condition" label="When it" fieldType="badge"/>
+      <column field="threshold" label="Limit"/>
+      <column field="frequency" label="Checked" fieldType="badge"/>
+      <column field="state" label="State" fieldType="badge"/>
+      <column field="last_value" label="Last value"/>
+      <column field="last_checked" label="Last checked"/>
+    </columns>
+    <empty title="No alerts yet" description="An alert watches a number chart and tells you when it crosses a line."/>
+  </view>
+</page>

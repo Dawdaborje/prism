@@ -1,0 +1,43 @@
+<page route="/prism/dashboards/{id}/edit" title="Edit dashboard" model="prism_dashboard" menu="false" roles="prism.prism_analyst,prism.prism_admin">
+  <header>
+    <button label="Add chart" href="/prism/dashboards/{id}/items/new" variant="outline"/>
+    <button label="Add note" href="/prism/dashboards/{id}/notes/new" variant="outline"/>
+    <button label="Add filter" href="/prism/dashboards/{id}/filters/new" variant="outline"/>
+    <button label="Delete dashboard" function="delete_dashboard" redirect="/prism/dashboards" confirm="Delete this dashboard? The charts stay in their workbooks." danger="true"/>
+  </header>
+  <view type="form" source="get_dashboard" function="set_dashboard" submit="Save" success="Saved">
+    <group title="Dashboard" cols="2">
+      <field name="name" label="Name" required="true"/>
+      <field name="shared" label="Shared with everyone"/>
+      <field name="refresh_secs" label="Refresh every (seconds)" fieldType="integer"/>
+      <field name="description" label="Description" fieldType="text" colspan="2"/>
+    </group>
+  </view>
+  <view type="list" model="prism_dashboard_item" source="list_items">
+    <columns>
+      <column field="position" label="#"/>
+      <column field="chart_name" label="Chart"/>
+      <column field="chart_kind" label="Type" fieldType="badge"/>
+      <column field="title" label="Title here"/>
+      <column field="width" label="Width"/>
+    </columns>
+    <actions>
+      <action name="up" label="Move up" function="item_up"/>
+      <action name="down" label="Move down" function="item_down"/>
+      <action name="remove" label="Remove" function="remove_item" confirm="Remove this chart from the dashboard?" danger="true"/>
+    </actions>
+    <empty title="No charts on this dashboard" description="Use Add chart."/>
+  </view>
+  <view type="list" model="prism_dashboard_filter" source="list_filters">
+    <columns>
+      <column field="label" label="Filter"/>
+      <column field="kind" label="Kind" fieldType="badge"/>
+      <column field="field" label="Field"/>
+      <column field="default_value" label="Default"/>
+    </columns>
+    <actions>
+      <action name="remove" label="Remove" function="remove_filter" confirm="Remove this filter?" danger="true"/>
+    </actions>
+    <empty title="No filters" description="Use Add filter to let people narrow every chart at once."/>
+  </view>
+</page>

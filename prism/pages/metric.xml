@@ -1,0 +1,16 @@
+<page route="/prism/metrics/{id}" title="Metric" model="prism_metric" menu="false" roles="prism_viewer,prism_analyst,prism_admin">
+  <header>
+    <button label="Delete metric" function="delete_metric" redirect="/prism/metrics" confirm="Delete this metric? Charts using it will stop working." danger="true" roles="prism_analyst,prism_admin"/>
+  </header>
+  <view type="form" source="get_metric" function="set_metric" submit="Save" success="Saved">
+    <group title="Metric" cols="2">
+      <field name="code" label="Code" required="true" help="Letters, digits and _; charts write metric(code)"/>
+      <field name="name" label="Name" required="true"/>
+      <field name="source" label="Data" fieldType="many2one" source="search_sources" optionLabel="name" entity="sources" required="true"/>
+      <field name="format" label="Format" fieldType="selection" options="number, compact, currency, percent, days"/>
+      <field name="measure" label="Measure" required="true" colspan="2" help="One measure, such as sum(expected_value), count_if({&quot;state&quot;: &quot;won&quot;}) or avg_days(created -&gt; closed)"/>
+      <field name="currency" label="Currency code"/>
+      <field name="description" label="Description" fieldType="text" colspan="2"/>
+    </group>
+  </view>
+</page>

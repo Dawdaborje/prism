@@ -1,0 +1,71 @@
+{
+  "model_id": "mdl_v7nbhd5iqc",
+  "name": "prism_dashboard",
+  "label": "Dashboard",
+  "plural_label": "Dashboards",
+  "icon": "layout-dashboard",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_rd2zydnvg2",
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "index": "plain"
+    },
+    {
+      "id": "fld_ptsd35yu3l",
+      "name": "description",
+      "label": "Description",
+      "type": "text"
+    },
+    {
+      "id": "fld_55gyqo6g6u",
+      "name": "shared",
+      "label": "Shared with everyone",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_xow6ahrdq6",
+      "name": "owner",
+      "label": "Owner",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_2mp2gwgt3a",
+      "name": "refresh_secs",
+      "label": "Refresh every (seconds)",
+      "type": "int",
+      "default": 0,
+      "help": "0: only when opened",
+      "min": 0,
+      "max": 86400
+    },
+    {
+      "id": "fld_jbkgvv3qny",
+      "name": "origin",
+      "label": "Origin",
+      "type": "string",
+      "max_length": 128,
+      "help": "The ready-made dashboard this was copied from"
+    },
+    {
+      "id": "fld_howaxchfy3",
+      "name": "archived",
+      "label": "Archived",
+      "type": "bool",
+      "default": false
+    }
+  ],
+  "view": {
+    "list": [
+      "name",
+      "shared",
+      "origin"
+    ]
+  }
+}

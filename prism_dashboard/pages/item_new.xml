@@ -1,0 +1,7 @@
+<page route="/prism/dashboards/{id}/items/new" title="Add chart" model="prism_dashboard_item" menu="false" roles="prism.prism_analyst,prism.prism_admin">
+  <view type="form" function="add_item" submit="Add to dashboard" success="Added" redirect="/prism/dashboards/{id}/edit">
+    <field name="chart" label="Chart" required="true"/>
+    <field name="title" label="Title on this dashboard"/>
+    <field name="width" label="Width (of 12)" fieldType="selection" options="3, 4, 6, 8, 12"/>
+  </view>
+</page>

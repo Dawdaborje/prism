@@ -1,0 +1,55 @@
+{
+  "model_id": "mdl_wn7atqljt5",
+  "name": "prism_workbook",
+  "label": "Workbook",
+  "plural_label": "Workbooks",
+  "icon": "book-open",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_i6selllzwr",
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "index": "plain"
+    },
+    {
+      "id": "fld_yxftpbx2jv",
+      "name": "description",
+      "label": "Description",
+      "type": "text"
+    },
+    {
+      "id": "fld_p6gfp3rtuv",
+      "name": "shared",
+      "label": "Shared with everyone",
+      "type": "bool",
+      "default": true,
+      "help": "Off: only you (and administrators) see it"
+    },
+    {
+      "id": "fld_r7wu66l2n2",
+      "name": "owner",
+      "label": "Owner",
+      "type": "string",
+      "max_length": 128,
+      "help": "User id of the owner"
+    },
+    {
+      "id": "fld_2fgcofvgfy",
+      "name": "archived",
+      "label": "Archived",
+      "type": "bool",
+      "default": false
+    }
+  ],
+  "view": {
+    "list": [
+      "name",
+      "shared",
+      "archived"
+    ]
+  }
+}

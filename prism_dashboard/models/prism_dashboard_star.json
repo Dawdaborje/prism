@@ -1,0 +1,34 @@
+{
+  "model_id": "mdl_17tjfj26pf",
+  "name": "prism_dashboard_star",
+  "label": "Starred dashboard",
+  "plural_label": "Starred dashboards",
+  "icon": "star",
+  "title_field": "dashboard",
+  "fields": [
+    {
+      "id": "fld_bmhpwxbpm3",
+      "name": "dashboard",
+      "label": "Dashboard",
+      "type": "link",
+      "required": true,
+      "index": "plain",
+      "target": "prism_dashboard"
+    },
+    {
+      "id": "fld_gheymcnje1",
+      "name": "user",
+      "label": "Person",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "index": "plain"
+    }
+  ],
+  "view": {
+    "list": [
+      "dashboard",
+      "user"
+    ]
+  }
+}

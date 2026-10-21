@@ -1,0 +1,36 @@
+[plugin]
+name = "prism_dashboard"
+icon_path = "assets/logo.svg"
+label = "Prism dashboards"
+version = "0.1.2"
+description = "Dashboards of Prism charts with shared filters, drill-down and downloads."
+long_description = """
+A dashboard is a grid of Prism charts and number cards under a bar of filters. One date filter steers
+every chart whatever it calls its date; a select filter applies to the charts whose data has that
+field. Every figure drills down to the records behind it. Written in Rust.
+See docs/design.md in this plugin (prism_dashboard/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["prism"]
+capabilities = ["db::query", "db::mutate", "plugins::call"]
+access_models = [
+  { name = "prism_dashboard", permissions = ["read", "write"] },
+  { name = "prism_dashboard_item", permissions = ["read", "write"] },
+  { name = "prism_dashboard_filter", permissions = ["read", "write"] },
+  { name = "prism_dashboard_star", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[app]
+label = "Dashboards"
+icon = "layout-dashboard"
+route = "/prism/dashboards"
+description = "Dashboards of Prism charts with shared filters and drill-down."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "prism"

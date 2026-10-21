@@ -1,0 +1,7 @@
+<page route="/prism/dashboards/{id}" title="Dashboard" model="prism_dashboard" menu="false" roles="prism.prism_viewer,prism.prism_analyst,prism.prism_admin">
+  <header>
+    <button label="Edit" href="/prism/dashboards/{id}/edit" variant="outline" roles="prism.prism_analyst,prism.prism_admin"/>
+    <button label="Make my copy" function="duplicate_dashboard" redirect="/prism/dashboards" variant="outline" roles="prism.prism_analyst,prism.prism_admin"/>
+  </header>
+  <view type="board" source="dashboard_board" drill="dashboard_drill"/>
+</page>

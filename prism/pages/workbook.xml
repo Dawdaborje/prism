@@ -1,0 +1,28 @@
+<page route="/prism/workbooks/{id}" title="Workbook" model="prism_workbook" menu="false" roles="prism_viewer,prism_analyst,prism_admin">
+  <header>
+    <button label="New chart" href="/prism/charts/new?workbook={id}" variant="outline"/>
+    <button label="Delete workbook" function="delete_workbook" redirect="/prism" confirm="Delete this workbook and all its charts?" danger="true"/>
+  </header>
+  <view type="form" source="get_workbook" function="set_workbook" submit="Save" success="Saved">
+    <group title="Workbook" cols="2">
+      <field name="name" label="Name" required="true"/>
+      <field name="shared" label="Shared with everyone"/>
+      <field name="description" label="Description" fieldType="text" colspan="2"/>
+    </group>
+  </view>
+  <view type="list" model="prism_chart" source="list_workbook_charts" open="/prism/charts/{id}">
+    <groupby field="folder" label="Folder"/>
+    <columns>
+      <column field="name" label="Chart"/>
+      <column field="folder" label="Folder"/>
+      <column field="kind" label="Type" fieldType="badge"/>
+      <column field="source" label="Data"/>
+      <column field="description" label="Description"/>
+    </columns>
+    <actions>
+      <action name="copy" label="Duplicate" function="duplicate_chart"/>
+      <action name="remove" label="Delete" function="delete_chart" confirm="Delete this chart?" danger="true"/>
+    </actions>
+    <empty title="No charts yet" description="Use New chart to build the first one."/>
+  </view>
+</page>

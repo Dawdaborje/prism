@@ -1,0 +1,211 @@
+{
+  "model_id": "mdl_p9e49alx4v",
+  "name": "prism_alert",
+  "label": "Alert",
+  "plural_label": "Alerts",
+  "icon": "bell",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_t8saw9lxxo",
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "index": "plain"
+    },
+    {
+      "id": "fld_3zukqv7qns",
+      "name": "chart",
+      "label": "Number chart",
+      "type": "link",
+      "required": true,
+      "index": "plain",
+      "target": "prism.prism_chart",
+      "target_id": "mdl_dc5xltck4d"
+    },
+    {
+      "id": "fld_05riotl88f",
+      "name": "reading",
+      "label": "Reading",
+      "type": "string",
+      "max_length": 100,
+      "help": "Which figure of the chart to watch. Empty: the first one"
+    },
+    {
+      "id": "fld_p6efdff1es",
+      "name": "condition",
+      "label": "Tell me when it",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_mrnnwrc8xx",
+          "value": "above",
+          "label": "goes above"
+        },
+        {
+          "id": "opt_zrvbtv6yi5",
+          "value": "below",
+          "label": "falls below"
+        },
+        {
+          "id": "opt_buchqu9gs4",
+          "value": "rises_by",
+          "label": "rises by more than (%)"
+        },
+        {
+          "id": "opt_xnw8y44zt8",
+          "value": "falls_by",
+          "label": "falls by more than (%)"
+        },
+        {
+          "id": "opt_8wfchhyggt",
+          "value": "is_empty",
+          "label": "is empty or zero"
+        }
+      ],
+      "default": "below"
+    },
+    {
+      "id": "fld_h27vql6t02",
+      "name": "threshold",
+      "label": "Limit",
+      "type": "float",
+      "help": "A value, or a percentage for rises and falls"
+    },
+    {
+      "id": "fld_3f49oovw1s",
+      "name": "frequency",
+      "label": "Check",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_95j89vfusm",
+          "value": "hourly",
+          "label": "every hour"
+        },
+        {
+          "id": "opt_38j4zr8g80",
+          "value": "daily",
+          "label": "every day"
+        },
+        {
+          "id": "opt_nbr2agj3c3",
+          "value": "weekly",
+          "label": "every week"
+        }
+      ],
+      "default": "daily"
+    },
+    {
+      "id": "fld_pqqzvzqfme",
+      "name": "active",
+      "label": "On",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_bb7ghx2yny",
+      "name": "emails",
+      "label": "Also email",
+      "type": "text",
+      "help": "Addresses, separated by commas (at most 10). You are always notified in the app"
+    },
+    {
+      "id": "fld_0yz4i86sbj",
+      "name": "message",
+      "label": "Message",
+      "type": "text",
+      "help": "Use {name}, {value}, {limit} and {change}"
+    },
+    {
+      "id": "fld_jddj2rfdzy",
+      "name": "notify_clear",
+      "label": "Tell me when it is back to normal",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "id": "fld_uzcc6e5tqt",
+      "name": "owner",
+      "label": "Owner",
+      "type": "string",
+      "max_length": 128
+    },
+    {
+      "id": "fld_f8vdmzxrbd",
+      "name": "state",
+      "label": "State",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_jvo6jovkdq",
+          "value": "new",
+          "label": "Not checked yet"
+        },
+        {
+          "id": "opt_78fjagttdd",
+          "value": "ok",
+          "label": "Fine"
+        },
+        {
+          "id": "opt_zhbv3d43cq",
+          "value": "firing",
+          "label": "Needs attention"
+        },
+        {
+          "id": "opt_eyzj4xqj4r",
+          "value": "error",
+          "label": "Could not check"
+        }
+      ],
+      "default": "new"
+    },
+    {
+      "id": "fld_v6seodyt4b",
+      "name": "last_value",
+      "label": "Last value",
+      "type": "float"
+    },
+    {
+      "id": "fld_wgd3v6lgmz",
+      "name": "last_checked",
+      "label": "Last checked",
+      "type": "string",
+      "max_length": 40
+    },
+    {
+      "id": "fld_4uyta3kksg",
+      "name": "last_fired",
+      "label": "Last needed attention",
+      "type": "string",
+      "max_length": 40
+    },
+    {
+      "id": "fld_ajhmz03frh",
+      "name": "last_error",
+      "label": "Last problem",
+      "type": "string",
+      "max_length": 500
+    },
+    {
+      "id": "fld_7jhsqygpaa",
+      "name": "chain",
+      "label": "Chain",
+      "type": "string",
+      "max_length": 80
+    }
+  ],
+  "view": {
+    "list": [
+      "name",
+      "condition",
+      "threshold",
+      "frequency",
+      "state",
+      "last_value",
+      "active"
+    ]
+  }
+}

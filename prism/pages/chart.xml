@@ -1,0 +1,8 @@
+<page route="/prism/charts/{id}" title="Chart" model="prism_chart" menu="false" roles="prism_viewer,prism_analyst,prism_admin">
+  <header>
+    <button label="Edit" href="/prism/charts/{id}/edit" variant="outline" roles="prism_analyst,prism_admin"/>
+    <button label="Download Excel" function="export_chart" format="xlsx" idparam="chart" variant="outline"/>
+    <button label="Download PDF" function="export_chart" format="pdf" idparam="chart" variant="outline"/>
+  </header>
+  <view type="board" source="chart_board" drill="chart_drill"/>
+</page>

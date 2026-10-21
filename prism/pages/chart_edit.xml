@@ -1,0 +1,8 @@
+<page route="/prism/charts/{id}/edit" title="Edit chart" model="prism_chart" menu="false" roles="prism_analyst,prism_admin">
+  <header>
+    <button label="Duplicate" function="duplicate_chart" redirect="/prism" variant="outline"/>
+    <button label="Delete chart" function="delete_chart" redirect="/prism" confirm="Delete this chart?" danger="true"/>
+  </header>
+  <view type="chart_builder"/>
+  <view type="board" source="chart_board" drill="chart_drill"/>
+</page>

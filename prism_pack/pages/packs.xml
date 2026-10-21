@@ -1,0 +1,15 @@
+<page route="/prism/packs" title="Ready-made" icon="package-open" sort="30" roles="prism.prism_viewer,prism.prism_analyst,prism.prism_admin">
+  <view type="list" source="list_packs">
+    <columns>
+      <column field="name" label="Pack"/>
+      <column field="description" label="What it shows"/>
+      <column field="charts" label="Charts"/>
+      <column field="available" label="App installed" fieldType="boolean"/>
+      <column field="installed" label="Installed here" fieldType="boolean"/>
+    </columns>
+    <actions>
+      <action name="install" label="Install or refresh" function="install_pack"/>
+    </actions>
+    <empty title="No packs" description="Packs appear when the app they are for is installed."/>
+  </view>
+</page>

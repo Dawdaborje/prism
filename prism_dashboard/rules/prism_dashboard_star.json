@@ -1,0 +1,21 @@
+{
+  "model": "prism_dashboard_star",
+  "access": [
+    {
+      "name": "own",
+      "roles": [
+        "prism.prism_viewer",
+        "prism.prism_analyst",
+        "prism.prism_admin"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "delete"
+      ],
+      "when": {
+        "user": "$user"
+      }
+    }
+  ]
+}

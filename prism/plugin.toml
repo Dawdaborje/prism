@@ -1,0 +1,51 @@
+[plugin]
+name = "prism"
+icon_path = "assets/logo.svg"
+label = "Prism"
+version = "0.2.0"
+description = "Workbooks, metrics and charts over any installed app's data."
+long_description = """
+Workbooks hold charts and reusable metrics. A chart reads any model the person may read, through the
+kernel's report engine, so record rules and hidden fields apply to every number. Written in Rust.
+See docs/design.md in this plugin (prism/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = []
+# "*": every installed app's models that have record rules, read as the person (never as a plugin).
+optional_dependencies = ["*"]
+capabilities = ["db::query", "db::mutate", "report::query", "report::export", "events::emit"]
+access_models = [
+  { name = "prism_workbook", permissions = ["read", "write"] },
+  { name = "prism_metric", permissions = ["read", "write"] },
+  { name = "prism_chart", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "prism_viewer"
+label = "Prism viewer"
+description = "Opens shared workbooks, charts and dashboards."
+
+[[roles]]
+name = "prism_analyst"
+label = "Prism analyst"
+description = "Viewer rights plus building workbooks, metrics and charts."
+
+[[roles]]
+name = "prism_admin"
+label = "Prism administrator"
+description = "Sees and changes everything in Prism."
+
+[app]
+label = "Prism"
+icon = "layout-dashboard"
+route = "/prism"
+description = "Charts, metrics and dashboards over your business data."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "prism"

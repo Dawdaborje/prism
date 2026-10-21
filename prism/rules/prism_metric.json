@@ -1,0 +1,28 @@
+{
+  "model": "prism_metric",
+  "access": [
+    {
+      "name": "read",
+      "roles": [
+        "prism_viewer",
+        "prism_analyst",
+        "prism_admin"
+      ],
+      "operations": [
+        "read"
+      ]
+    },
+    {
+      "name": "write",
+      "roles": [
+        "prism_analyst",
+        "prism_admin"
+      ],
+      "operations": [
+        "create",
+        "write",
+        "delete"
+      ]
+    }
+  ]
+}

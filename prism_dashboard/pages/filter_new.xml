@@ -1,0 +1,12 @@
+<page route="/prism/dashboards/{id}/filters/new" title="Add filter" model="prism_dashboard_filter" menu="false" roles="prism.prism_analyst,prism.prism_admin">
+  <view type="form" function="add_filter" submit="Add filter" success="Added" redirect="/prism/dashboards/{id}/edit">
+    <group title="Filter" cols="2">
+      <field name="label" label="Label" required="true"/>
+      <field name="name" label="Name" required="true"/>
+      <field name="kind" label="Kind" fieldType="selection" options="period, select, text"/>
+      <field name="field" label="Field" required="true" help="$date steers every chart's own date field; or a field such as stage"/>
+      <field name="source" label="Values come from" fieldType="many2one" source="prism.search_sources" optionLabel="name" entity="sources" help="For a value picker"/>
+      <field name="default_value" label="Default" help="A period such as this_month, or a value"/>
+    </group>
+  </view>
+</page>

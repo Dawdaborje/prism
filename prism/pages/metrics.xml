@@ -1,0 +1,14 @@
+<page route="/prism/metrics" title="Metrics" model="prism_metric" icon="sigma" sort="20" roles="prism_viewer,prism_analyst,prism_admin">
+  <view type="list" model="prism_metric" source="search_metrics" open="/prism/metrics/{id}"
+        create="/prism/metrics/new" create_label="New metric" page_size="25">
+    <search fields="code,name,source"/>
+    <columns>
+      <column field="code" label="Code" sortable="true"/>
+      <column field="name" label="Name" sortable="true"/>
+      <column field="source" label="Data"/>
+      <column field="measure" label="Measure"/>
+      <column field="format" label="Format" fieldType="badge"/>
+    </columns>
+    <empty title="No metrics yet" description="A metric is a measure with a name, defined once and used by any chart as metric(code)."/>
+  </view>
+</page>

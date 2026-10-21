@@ -1,0 +1,20 @@
+[workspace]
+name = "prism"
+label = "Prism"
+version = "0.1.0"
+description = "Business intelligence: pick any model, build charts, metrics and dashboards that follow each person's own access."
+long_description = """
+Prism is the analytics workspace for Aether. Charts and metrics read any installed app's data
+through the kernel's report engine, so every number respects the record rules and hidden fields
+of the person looking at it. Dashboards share filters across charts, numbers compare against the
+previous period and a target, and every figure drills down to the records behind it.
+See README.md and each plugin's docs/design.md.
+"""
+group_label = "Prism"
+group_icon = "./assets/prism.svg"
+
+[workspace.plugins]
+prism = { path = "./prism" }
+prism_dashboard = { path = "./prism_dashboard" }
+prism_pack = { path = "./prism_pack" }
+prism_alert = { path = "./prism_alert" }

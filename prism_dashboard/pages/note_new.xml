@@ -1,0 +1,7 @@
+<page route="/prism/dashboards/{id}/notes/new" title="Add note" model="prism_dashboard_item" menu="false" roles="prism.prism_analyst,prism.prism_admin">
+  <view type="form" function="add_note" submit="Add to dashboard" success="Added" redirect="/prism/dashboards/{id}/edit">
+    <field name="title" label="Heading"/>
+    <field name="text" label="Note" fieldType="text" required="true" help="Plain text. Say what a section shows or how a figure is counted."/>
+    <field name="width" label="Width (of 12)" fieldType="selection" options="3, 4, 6, 8, 12"/>
+  </view>
+</page>

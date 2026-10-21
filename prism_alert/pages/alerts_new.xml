@@ -1,0 +1,20 @@
+<page route="/prism/alerts/new" title="New alert" model="prism_alert" menu="false" roles="prism_analyst,prism_admin">
+  <view type="form" function="create_alert" submit="Create alert" success="Alert created" redirect="/prism/alerts">
+    <group title="What to watch" cols="2">
+      <field name="name" label="Name" required="true"/>
+      <field name="chart" label="Number chart" fieldType="many2one" source="search_charts" optionLabel="name" entity="charts" required="true" help="Only number charts can be watched"/>
+      <field name="reading" label="Reading" help="Which figure of the chart; empty means the first"/>
+    </group>
+    <group title="When to tell me" cols="3">
+      <field name="condition" label="Tell me when it" fieldType="selection" options="above, below, rises_by, falls_by, is_empty"/>
+      <field name="threshold" label="Limit" fieldType="float" help="A value, or a percentage for rises and falls"/>
+      <field name="frequency" label="Check" fieldType="selection" options="hourly, daily, weekly"/>
+      <field name="notify_clear" label="Tell me when it is back to normal"/>
+      <field name="active" label="On"/>
+    </group>
+    <group title="How" cols="1">
+      <field name="emails" label="Also email" fieldType="text" help="Addresses separated by commas. You are always notified in the app. Emailed figures are what you see."/>
+      <field name="message" label="Message" fieldType="text" help="Use {name}, {value}, {limit} and {change}"/>
+    </group>
+  </view>
+</page>

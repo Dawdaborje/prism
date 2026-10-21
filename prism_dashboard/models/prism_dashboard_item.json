@@ -1,0 +1,109 @@
+{
+  "model_id": "mdl_up6mfdx5ig",
+  "name": "prism_dashboard_item",
+  "label": "Dashboard item",
+  "plural_label": "Dashboard items",
+  "icon": "square",
+  "title_field": "title",
+  "fields": [
+    {
+      "id": "fld_p6go2urber",
+      "name": "dashboard",
+      "label": "Dashboard",
+      "type": "link",
+      "required": true,
+      "index": "plain",
+      "target": "prism_dashboard"
+    },
+    {
+      "id": "fld_tg4jomzk3d",
+      "name": "chart",
+      "label": "Chart",
+      "type": "link",
+      "required": false,
+      "index": "plain",
+      "target": "prism.prism_chart",
+      "target_id": "mdl_dc5xltck4d",
+      "help": "Empty for a note block"
+    },
+    {
+      "id": "fld_vecopoje5t",
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "max_length": 200,
+      "help": "Replaces the chart's own title"
+    },
+    {
+      "id": "fld_0bq0gm7sk0",
+      "name": "text",
+      "label": "Note",
+      "type": "text",
+      "help": "A note block: text shown between charts, such as what a section means or how a figure is counted"
+    },
+    {
+      "id": "fld_d6lrwpy63k",
+      "name": "width",
+      "label": "Width",
+      "type": "select",
+      "default": "6",
+      "options": [
+        {
+          "id": "opt_hwbrigmgg3",
+          "value": "3",
+          "label": "Quarter"
+        },
+        {
+          "id": "opt_h54yeehvqg",
+          "value": "4",
+          "label": "Third"
+        },
+        {
+          "id": "opt_ukmwdl4vgw",
+          "value": "6",
+          "label": "Half"
+        },
+        {
+          "id": "opt_pwxynubamt",
+          "value": "8",
+          "label": "Two thirds"
+        },
+        {
+          "id": "opt_lpe4vyw4mu",
+          "value": "12",
+          "label": "Full"
+        }
+      ]
+    },
+    {
+      "id": "fld_ko2ox5ayyb",
+      "name": "position",
+      "label": "Position",
+      "type": "int",
+      "default": 0
+    },
+    {
+      "id": "fld_7e5i4nzkd4",
+      "name": "shared",
+      "label": "Shared",
+      "type": "bool",
+      "related": "dashboard.shared"
+    },
+    {
+      "id": "fld_uonuxhkk47",
+      "name": "owner",
+      "label": "Owner",
+      "type": "string",
+      "max_length": 128,
+      "related": "dashboard.owner"
+    }
+  ],
+  "view": {
+    "list": [
+      "dashboard",
+      "chart",
+      "width",
+      "position"
+    ]
+  }
+}

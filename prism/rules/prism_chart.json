@@ -1,0 +1,52 @@
+{
+  "model": "prism_chart",
+  "access": [
+    {
+      "name": "shared",
+      "roles": [
+        "prism_viewer",
+        "prism_analyst",
+        "prism_admin"
+      ],
+      "operations": [
+        "read"
+      ],
+      "when": {
+        "shared": true
+      }
+    },
+    {
+      "name": "own",
+      "operations": [
+        "read",
+        "write",
+        "delete"
+      ],
+      "when": {
+        "owner": "$user"
+      }
+    },
+    {
+      "name": "create",
+      "roles": [
+        "prism_analyst",
+        "prism_admin"
+      ],
+      "operations": [
+        "create"
+      ]
+    },
+    {
+      "name": "admin",
+      "roles": [
+        "prism_admin"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write",
+        "delete"
+      ]
+    }
+  ]
+}

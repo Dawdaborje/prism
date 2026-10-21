@@ -1,0 +1,359 @@
+{
+  "model_id": "mdl_dc5xltck4d",
+  "name": "prism_chart",
+  "label": "Chart",
+  "plural_label": "Charts",
+  "icon": "chart-column",
+  "title_field": "name",
+  "fields": [
+    {
+      "id": "fld_os22zpmydh",
+      "name": "workbook",
+      "label": "Workbook",
+      "type": "link",
+      "required": true,
+      "index": "plain",
+      "target": "prism_workbook"
+    },
+    {
+      "id": "fld_d3exvg5f4n",
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "required": true,
+      "max_length": 200
+    },
+    {
+      "id": "fld_02er01o9io",
+      "name": "folder",
+      "label": "Folder",
+      "type": "string",
+      "max_length": 80,
+      "index": "plain",
+      "help": "Groups charts in the workbook, such as Sales or Sales / Pipeline"
+    },
+    {
+      "id": "fld_icsdqhjdnm",
+      "name": "kind",
+      "label": "Kind",
+      "type": "select",
+      "default": "bar",
+      "options": [
+        {
+          "id": "opt_u73cpbjtpx",
+          "value": "number",
+          "label": "Number"
+        },
+        {
+          "id": "opt_kqh4hou7vd",
+          "value": "bar",
+          "label": "Bar"
+        },
+        {
+          "id": "opt_zdf2f7r6fn",
+          "value": "stacked_bar",
+          "label": "Stacked bar"
+        },
+        {
+          "id": "opt_vfepfziayy",
+          "value": "row",
+          "label": "Row"
+        },
+        {
+          "id": "opt_bqgrbkcjj4",
+          "value": "line",
+          "label": "Line"
+        },
+        {
+          "id": "opt_vsarairdgv",
+          "value": "area",
+          "label": "Area"
+        },
+        {
+          "id": "opt_2x4cvyluhv",
+          "value": "pie",
+          "label": "Pie"
+        },
+        {
+          "id": "opt_pc72zs6aez",
+          "value": "donut",
+          "label": "Donut"
+        },
+        {
+          "id": "opt_y5l4tuy01x",
+          "value": "funnel",
+          "label": "Funnel"
+        },
+        {
+          "id": "opt_jux9phismg",
+          "value": "map",
+          "label": "Map"
+        },
+        {
+          "id": "opt_93c8guimzo",
+          "value": "bubble",
+          "label": "Bubble"
+        },
+        {
+          "id": "opt_rbsnjxzbfq",
+          "value": "sankey",
+          "label": "Flow (sankey)"
+        },
+        {
+          "id": "opt_fxsyvnbnrp",
+          "value": "table",
+          "label": "Table"
+        },
+        {
+          "id": "opt_qcun5qto7m",
+          "value": "pivot",
+          "label": "Pivot"
+        },
+        {
+          "id": "opt_jd43wq5u9l",
+          "value": "heatmap",
+          "label": "Heatmap"
+        }
+      ]
+    },
+    {
+      "id": "fld_hwzrt6ay2i",
+      "name": "source",
+      "label": "Source",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "help": "Model, such as crm_deal.deal"
+    },
+    {
+      "id": "fld_rr5xbhnnah",
+      "name": "dimensions",
+      "label": "Dimensions",
+      "type": "text",
+      "help": "Comma list: stage, expected_close:month"
+    },
+    {
+      "id": "fld_5rvd3xujbf",
+      "name": "measures",
+      "label": "Measures",
+      "type": "text",
+      "help": "One per line: name = count | sum(field) | avg(field) | count_if({..}) | sum_if(field, {..}) | ratio(a, b) | metric(code)"
+    },
+    {
+      "id": "fld_rhw2ffw2em",
+      "name": "filter",
+      "label": "Filter",
+      "type": "text",
+      "help": "Kernel filter as JSON, such as {\"active\": true}"
+    },
+    {
+      "id": "fld_glymcdioec",
+      "name": "sort",
+      "label": "Sort",
+      "type": "string",
+      "max_length": 64,
+      "help": "A measure or dimension, - for descending"
+    },
+    {
+      "id": "fld_dtqewsym2n",
+      "name": "row_limit",
+      "label": "Row limit",
+      "type": "int",
+      "default": 12,
+      "min": 1,
+      "max": 1000
+    },
+    {
+      "id": "fld_zjfxadiade",
+      "name": "date_field",
+      "label": "Date field",
+      "type": "string",
+      "max_length": 64,
+      "help": "The date the period and dashboard date filters apply to"
+    },
+    {
+      "id": "fld_g7qz2ogbmr",
+      "name": "period",
+      "label": "Period",
+      "type": "select",
+      "default": "none",
+      "options": [
+        {
+          "id": "opt_sxkvrwllsw",
+          "value": "none",
+          "label": "All time"
+        },
+        {
+          "id": "opt_l32sjxtpe4",
+          "value": "today",
+          "label": "Today"
+        },
+        {
+          "id": "opt_6gotlnpg2p",
+          "value": "this_week",
+          "label": "This week"
+        },
+        {
+          "id": "opt_drk6hf36oi",
+          "value": "this_month",
+          "label": "This month"
+        },
+        {
+          "id": "opt_jzq73xiytw",
+          "value": "this_quarter",
+          "label": "This quarter"
+        },
+        {
+          "id": "opt_uesrdirbzw",
+          "value": "this_year",
+          "label": "This year"
+        },
+        {
+          "id": "opt_wn65xbcgkm",
+          "value": "last_7_days",
+          "label": "Last 7 days"
+        },
+        {
+          "id": "opt_bui3dj2wv7",
+          "value": "last_30_days",
+          "label": "Last 30 days"
+        },
+        {
+          "id": "opt_d2nq7yzmli",
+          "value": "last_90_days",
+          "label": "Last 90 days"
+        }
+      ]
+    },
+    {
+      "id": "fld_hisni4p76f",
+      "name": "compare",
+      "label": "Compare with previous period",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "id": "fld_4ip6kqjao3",
+      "name": "target",
+      "label": "Target",
+      "type": "float",
+      "help": "A goal. Number charts show progress to it; bar, row, line and area charts draw it as a dashed line"
+    },
+    {
+      "id": "fld_84y0pbru0r",
+      "name": "lower_is_better",
+      "label": "Lower is better",
+      "type": "bool",
+      "default": false,
+      "help": "For costs and waiting times: a fall counts as good news, and a goal is met by staying under it"
+    },
+    {
+      "id": "fld_8dsjv3wwsv",
+      "name": "guide",
+      "label": "Guide line",
+      "type": "select",
+      "default": "none",
+      "help": "Draw a line over a bar, line or area chart: the average or median of the first series, or its trend",
+      "options": [
+        {
+          "id": "opt_bwtl1prcuw",
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "id": "opt_mnf7fr7mfx",
+          "value": "average",
+          "label": "Average"
+        },
+        {
+          "id": "opt_2ac2sbrkd9",
+          "value": "median",
+          "label": "Median"
+        },
+        {
+          "id": "opt_p0vbtlmggr",
+          "value": "trend",
+          "label": "Trend"
+        }
+      ]
+    },
+    {
+      "id": "fld_chzpqjedso",
+      "name": "format",
+      "label": "Format",
+      "type": "select",
+      "default": "number",
+      "options": [
+        {
+          "id": "opt_xmoa62tckm",
+          "value": "number",
+          "label": "Number"
+        },
+        {
+          "id": "opt_nzoqmc7yzj",
+          "value": "compact",
+          "label": "Compact (1.2k)"
+        },
+        {
+          "id": "opt_qyiu42igsy",
+          "value": "currency",
+          "label": "Currency"
+        },
+        {
+          "id": "opt_abl2r363ct",
+          "value": "percent",
+          "label": "Percent"
+        },
+        {
+          "id": "opt_2y7tuwtojb",
+          "value": "days",
+          "label": "Days"
+        }
+      ]
+    },
+    {
+      "id": "fld_icpfngzlp2",
+      "name": "currency",
+      "label": "Currency",
+      "type": "string",
+      "max_length": 8
+    },
+    {
+      "id": "fld_gtccpekdrv",
+      "name": "description",
+      "label": "Description",
+      "type": "string",
+      "max_length": 300
+    },
+    {
+      "id": "fld_cchw7tavs2",
+      "name": "info",
+      "label": "Info",
+      "type": "text",
+      "help": "Definitions and caveats, shown behind an info mark"
+    },
+    {
+      "id": "fld_omtddljta6",
+      "name": "shared",
+      "label": "Shared",
+      "type": "bool",
+      "related": "workbook.shared"
+    },
+    {
+      "id": "fld_izaaan24u6",
+      "name": "owner",
+      "label": "Owner",
+      "type": "string",
+      "max_length": 128,
+      "related": "workbook.owner"
+    }
+  ],
+  "view": {
+    "list": [
+      "name",
+      "kind",
+      "source",
+      "workbook"
+    ]
+  }
+}

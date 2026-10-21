@@ -1,0 +1,36 @@
+{
+  "model": "prism_alert",
+  "access": [
+    {
+      "name": "own",
+      "operations": [
+        "read",
+        "write",
+        "delete"
+      ],
+      "when": {
+        "owner": "$user"
+      }
+    },
+    {
+      "name": "create",
+      "roles": [
+        "prism.prism_analyst",
+        "prism.prism_admin"
+      ],
+      "operations": [
+        "create"
+      ]
+    },
+    {
+      "name": "admin",
+      "roles": [
+        "prism.prism_admin"
+      ],
+      "operations": [
+        "read",
+        "delete"
+      ]
+    }
+  ]
+}

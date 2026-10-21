@@ -1,0 +1,3 @@
+<page route="/prism/charts/new" title="New chart" model="prism_chart" menu="false" query="workbook" roles="prism_analyst,prism_admin">
+  <view type="chart_builder"/>
+</page>

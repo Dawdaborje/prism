@@ -1,0 +1,38 @@
+[plugin]
+name = "prism_pack"
+icon_path = "assets/logo.svg"
+label = "Prism packs"
+version = "0.2.0"
+description = "Ready-made dashboards for the apps you have installed, yours to copy and change."
+long_description = """
+A pack is a workbook of charts and a dashboard for one app, such as CRM sales. A pack is offered only
+when its app is installed. Packs belong to nobody and are refreshed whenever they are installed again;
+make your own copy of a dashboard to change it. Written in Rust.
+See docs/design.md in this plugin (prism_pack/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["prism", "prism_dashboard"]
+optional_dependencies = ["crm_deal", "crm_lead", "helpdesk_ticket", "helpdesk_sla", "hr_recruitment", "hr_leave", "erp_selling", "erp_procurement", "erp_inventory", "gl", "gl_payment"]
+capabilities = ["plugins::call"]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[command]]
+name = "seed"
+function = "seed_packs"
+help = "Install the ready-made dashboards of every app that is installed (idempotent)"
+on_install = true
+on_upgrade = true
+
+[app]
+label = "Ready-made"
+icon = "package-open"
+route = "/prism/packs"
+description = "Ready-made Prism dashboards for your installed apps."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "prism"
