@@ -3,7 +3,7 @@
   "name": "prism_dashboard_filter",
   "label": "Dashboard filter",
   "plural_label": "Dashboard filters",
-  "icon": "filter",
+  "icon": "sliders",
   "title_field": "label",
   "fields": [
     {

@@ -3,7 +3,7 @@
   "name": "prism_dashboard_item",
   "label": "Dashboard item",
   "plural_label": "Dashboard items",
-  "icon": "square",
+  "icon": "chart-bar",
   "title_field": "title",
   "fields": [
     {

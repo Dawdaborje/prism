@@ -1,4 +1,4 @@
-<page route="/prism/metrics" title="Metrics" model="prism_metric" icon="sigma" sort="20" roles="prism_viewer,prism_analyst,prism_admin">
+<page route="/prism/metrics" title="Metrics" model="prism_metric" icon="hash" sort="20" roles="prism_viewer,prism_analyst,prism_admin">
   <view type="list" model="prism_metric" source="search_metrics" open="/prism/metrics/{id}"
         create="/prism/metrics/new" create_label="New metric" page_size="25">
     <search fields="code,name,source"/>

@@ -1,4 +1,4 @@
-<page route="/prism/packs" title="Ready-made" icon="package-open" sort="30" roles="prism.prism_viewer,prism.prism_analyst,prism.prism_admin">
+<page route="/prism/packs" title="Ready-made" icon="package" sort="30" roles="prism.prism_viewer,prism.prism_analyst,prism.prism_admin">
   <view type="list" source="list_packs">
     <columns>
       <column field="name" label="Pack"/>

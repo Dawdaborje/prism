@@ -15,6 +15,13 @@ pub struct Id {
     pub id: String,
 }
 
+/// The workbook's full record id (`table:key`), as the kernel stores it. Page routes send the bare
+/// key, and a link field filter or value needs the full form, so ask the record for its own id.
+fn workbook_id(id: &str) -> Result<String> {
+    let workbook = require("prism_workbook", id, "workbook")?;
+    Ok(id_of(&workbook)?.to_string())
+}
+
 #[derive(Deserialize, Default)]
 pub struct Search {
     #[serde(default)]
@@ -84,7 +91,7 @@ pub fn search_workbooks(input: Search) -> Result<Value> {
 pub fn delete_workbook(input: Id) -> Result<Value> {
     require_analyst()?;
     require("prism_workbook", &input.id, "workbook")?;
-    let charts = db::find::<Record>("prism_chart").filter("workbook", input.id.as_str()).limit(1000).all()?;
+    let charts = db::find::<Record>("prism_chart").filter("workbook", workbook_id(&input.id)?.as_str()).limit(1000).all()?;
     for chart in &charts {
         db::delete::<Record>("prism_chart", id_of(chart)?)?;
     }
@@ -94,7 +101,7 @@ pub fn delete_workbook(input: Id) -> Result<Value> {
 
 pub fn list_workbook_charts(input: Id) -> Result<Vec<Record>> {
     require_viewer()?;
-    let mut charts = db::find::<Record>("prism_chart").filter("workbook", input.id.as_str()).limit(500).all()?;
+    let mut charts = db::find::<Record>("prism_chart").filter("workbook", workbook_id(&input.id)?.as_str()).limit(500).all()?;
     charts.sort_by_key(|chart| (text(chart, "folder").unwrap_or("").to_lowercase(), text(chart, "name").unwrap_or("").to_lowercase()));
     Ok(charts)
 }
@@ -204,7 +211,7 @@ pub fn create_chart(input: Value) -> Result<Record> {
     required(&input, "source", "the data")?;
     check_chart(&input)?;
     let mut data = pick(&input, CHART_FIELDS);
-    data["workbook"] = json!(workbook);
+    data["workbook"] = json!(workbook_id(workbook)?);
     db::create::<Record>("prism_chart", &data)
 }
 

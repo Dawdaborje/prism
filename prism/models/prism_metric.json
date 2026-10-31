@@ -3,7 +3,7 @@
   "name": "prism_metric",
   "label": "Metric",
   "plural_label": "Metrics",
-  "icon": "sigma",
+  "icon": "hash",
   "title_field": "name",
   "fields": [
     {
