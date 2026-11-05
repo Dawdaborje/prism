@@ -3,7 +3,7 @@ name = "prism_alert"
 icon_path = "assets/logo.svg"
 label = "Prism alerts"
 version = "0.1.0"
-description = "Tell me when a number crosses a line: a notification and an email, checked as you."
+description = "Notifies you, in the app and by email, when a number crosses a line you set; checked with your own access."
 long_description = """
 An alert watches one reading of a Prism number chart and tells its owner when it goes above or below a limit, or
 rises or falls by more than a percentage. Each check runs as the person who made the alert, so it sees exactly
